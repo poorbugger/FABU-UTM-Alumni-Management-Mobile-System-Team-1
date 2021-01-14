@@ -7,26 +7,29 @@ class Landing extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
+          //todo: implement logout fnc
           padding: const EdgeInsets.symmetric(vertical: 10.0 ,horizontal: 20.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-            Row(
-              children: <Widget>[
-                Expanded(
-                  flex:1,
-                  child: RaisedButton(
-                    color: Colors.indigo[300],
-                    onPressed: () {Navigator.pushNamed(context, '/viewprofile');},
-                    child: Text('Profile'),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    flex:1,
+                    child: RaisedButton(
+                      color: Colors.indigo[300],
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/viewprofile');
+                      },
+                      child: Text('Profile'),
 
+                    ),
                   ),
-                ),
 
 
-              ],
-            ),
-            Row(
+                ],
+              ),
+              Row(
                 children: <Widget>[
                   Expanded(
                     flex:1,
@@ -40,6 +43,19 @@ class Landing extends StatelessWidget {
                 ],
               ),
 
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    flex:1,
+                    child: RaisedButton(
+                      color: Colors.indigo[300],
+                      onPressed: () {Navigator.pushNamed(context, '/logactivity');},
+                      child: Text('My activities'),
+
+                    ),
+                  ),
+                ],
+              ),
 
             ],
           ),
