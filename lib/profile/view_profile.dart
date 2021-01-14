@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+
 class Profile extends StatefulWidget {
   @override
   _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,7 +16,7 @@ class _ProfileState extends State<Profile> {
       appBar: AppBar(
         backgroundColor: Colors.indigo[600],
         toolbarHeight: 100.0,
-        title: Text('Profile'),
+        title: Text('My Profile'),
         centerTitle: true,
       ),
       body: Padding(
@@ -82,7 +85,7 @@ class _ProfileState extends State<Profile> {
             RaisedButton.icon(
                 color: Colors.indigo[300],
                 onPressed: () {
-                  Navigator.pushNamed(context, '/viewalumniprofile');
+                  Navigator.pushNamed(context, '/view_alumni_profile');
                 },
                 icon: Icon(Icons.edit),
                 label: Text('More Details..'))
