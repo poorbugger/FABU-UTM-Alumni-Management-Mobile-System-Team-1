@@ -1,22 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Login',
-      theme: ThemeData(
-        primaryColor: Colors.blueGrey[400],
-      ),
-      home: LoginPage(),
-    );
-  }
-}
 
 class LoginPage extends StatefulWidget {
   @override
@@ -69,7 +52,10 @@ class _LoginPageState extends State<LoginPage> {
                   // ignore: deprecated_member_use
                   child:RaisedButton(
                     disabledElevation: 4.0,
-                    onPressed: null,
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/landing');
+                    //  tODO:todo: implement login
+                    },
                     child: Text("Login", style: TextStyle(fontSize: 20,color:
                     Colors.white)),
                   ),

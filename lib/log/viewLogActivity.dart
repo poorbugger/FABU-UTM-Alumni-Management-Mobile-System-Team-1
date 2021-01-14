@@ -1,26 +1,7 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      // routes:{
-      //'/sponsorship': (context)=> ();
-      //'/event': (context)=> ()
-      //}
-      title: 'Log Activity',
-      theme: ThemeData(
-        primaryColor: Colors.blueGrey[600],
-      ),
-      home: LogActivityPage(),
-    );
-  }
-}
+
 
 class LogActivityPage extends StatefulWidget {
   @override
