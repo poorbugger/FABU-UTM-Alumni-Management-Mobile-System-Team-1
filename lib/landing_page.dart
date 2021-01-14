@@ -86,26 +86,6 @@ class Landing extends StatelessWidget {
               ),
 
 
-
-                    ),
-                  ),
-                ],
-              ),
-
-              Row(
-                children: <Widget>[
-                  Expanded(
-                    flex:1,
-                    child: RaisedButton(
-                      color: Colors.indigo[300],
-                      onPressed: () {Navigator.pushNamed(context, '/logactivity');},
-                      child: Text('My activities'),
-
-                    ),
-                  ),
-                ],
-              ),
-
             ],
           ),
         ),
