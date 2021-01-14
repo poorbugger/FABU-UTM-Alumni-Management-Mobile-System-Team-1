@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sda/news/news.dart';
 import 'package:dio/dio.dart';
-
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 class AllNews extends StatefulWidget {
   @override
   _AllNewsState createState() => _AllNewsState();
@@ -55,8 +55,14 @@ class _AllNewsState extends State<AllNews> {
                 );
 
               }
+              else
+                {
+                  return SpinKitDualRing(
+                      color: Colors.blue[900],
+                      size: 50.0,
+                  );
+                }
 
-              return null;
             }
         ),
       ),

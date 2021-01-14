@@ -85,7 +85,7 @@ class _ProfileState extends State<Profile> {
             RaisedButton.icon(
                 color: Colors.indigo[300],
                 onPressed: () {
-                  Navigator.pushNamed(context, '/view_alumni_profile');
+                  Navigator.pushNamed(context, '/viewalumniprofile');
                 },
                 icon: Icon(Icons.edit),
                 label: Text('More Details..'))

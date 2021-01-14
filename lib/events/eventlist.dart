@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:sda/events/event.dart';
 import 'package:dio/dio.dart';
-
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 class AllEvents extends StatefulWidget {
   @override
   _AllEventsState createState() => _AllEventsState();
@@ -57,7 +57,13 @@ class _AllEventsState extends State<AllEvents> {
 
           }
 
-        return null;
+        else
+          {
+            return SpinKitDualRing(
+                color: Colors.blue[900],
+                size: 50.0,
+            );
+          }
     }
     ),
     ),

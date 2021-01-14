@@ -13,7 +13,6 @@ void main() {
   runApp(MaterialApp(
     initialRoute: '/', //later when we done /loading will be default
     routes: {
-      '/':(context) => Landing(),
       '/view_events_list':(context)=> new AllEvents(),
      // '/view_events':(context)=> event(),
       '/view_news_list':(context)=> new AllNews(),
