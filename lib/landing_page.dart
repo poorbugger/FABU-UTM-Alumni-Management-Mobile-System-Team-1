@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 
 class Landing extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,7 +51,7 @@ class Landing extends StatelessWidget {
                     child: RaisedButton(
                       color: Colors.indigo[300],
                       onPressed: () {Navigator.pushNamed(context, '/logactivity');},
-                      child: Text('My activities'),
+                      child: Text('Log activities'),
 
                     ),
                   ),
@@ -91,8 +92,25 @@ class Landing extends StatelessWidget {
         ),
       ),
 
+      bottomNavigationBar: BottomNavigationBar(
+        items:<BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.announcement),
+            label: 'Announcement',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_box),
+            label: 'Profile',
+          ),
+        ],
 
+      ),
 
     );
   }
+
 }
