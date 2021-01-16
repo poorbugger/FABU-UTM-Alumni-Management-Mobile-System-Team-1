@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sda/profile/view_other_alumni.dart';
+import 'package:sda/concreteDio.dart';
 import 'dart:async';
 class AllProfile extends StatefulWidget {
   @override
@@ -9,22 +10,7 @@ class AllProfile extends StatefulWidget {
 }
 
 class _AllProfileState extends State<AllProfile> {
-  Future<List> alumnis;
-
-  Future<List> getAlumnis() async{
-
-    Response response= await Dio().get("https://reqres.in/api/unknown");
-    return response.data['data'];
-  }
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    alumnis=getAlumnis();
-    super.initState();
-
-  }
-
+  final ConcreteDio cd = ConcreteDio();
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +25,7 @@ class _AllProfileState extends State<AllProfile> {
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 5),
         child: FutureBuilder<List>(
-          future: alumnis,
+          future: cd.getAlumnis(),
           builder: (BuildContext context, AsyncSnapshot<List> snapshot){
             if(snapshot.hasData)
               {
@@ -98,4 +84,5 @@ class Alumni
   String id;
 
   Alumni(this.name,this.email,this.id);
+
 }

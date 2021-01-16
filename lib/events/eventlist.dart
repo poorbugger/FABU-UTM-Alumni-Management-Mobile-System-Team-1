@@ -1,27 +1,28 @@
-
+import 'package:sda/concreteDio.dart';
 import 'package:flutter/material.dart';
 import 'package:sda/events/event.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 class AllEvents extends StatefulWidget {
+
+
   @override
   _AllEventsState createState() => _AllEventsState();
 }
 
 class _AllEventsState extends State<AllEvents> {
- Future<List> events;
-
- Future<List> getEvents() async{
-    var response = await Dio().get("https://restcountries.eu/rest/v2/all");
-    return response.data;
-  }
+  final ConcreteDio cD = ConcreteDio();
+ //Future<List> events;
 
 
-  @override
-  void initState() {
-    events = getEvents();
-    super.initState();
-  }
+
+
+  // @override
+  // void initState() {
+  //   //events = getEvents();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +34,7 @@ class _AllEventsState extends State<AllEvents> {
       body: Container(
           padding: EdgeInsets.all(10),
     child: FutureBuilder<List>(
-    future: events, // a previously-obtained Future<String> or null
+    future: cD.getEvents(), // a previously-obtained Future<String> or null
     builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
         if(snapshot.hasData)
           {
