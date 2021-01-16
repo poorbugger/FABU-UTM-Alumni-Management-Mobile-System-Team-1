@@ -1,8 +1,3 @@
-import 'package:sda/events/event.dart';
-import 'package:sda/events/eventlist.dart';
-import 'package:dio/dio.dart';
-
-
 
 class DioClass{
   String getEventUrl(){
@@ -14,4 +9,8 @@ class DioClass{
 
   }
 
+  String getAlumniUrl()
+  {
+    return "https://reqres.in/api/unknown";
+  }
 }
