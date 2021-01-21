@@ -21,7 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-
+  flutter_svg: ^0.19.2+1
 
   flutter:
     sdk: flutter
@@ -59,6 +59,18 @@ flutter:
      - assets/images/LOGO-UTM.png
      - assets/images/eventG.png
      - assets/images/sponsor.png
+     - assets/images/top_header.png
+
+  fonts:
+     - family: Montserrat Regular
+       fonts:
+          - asset: assets/fonts/mo_me.ttf
+
+     - family: Montserrat Medium
+       fonts:
+          - asset: assets/fonts/mo_re.ttf
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
