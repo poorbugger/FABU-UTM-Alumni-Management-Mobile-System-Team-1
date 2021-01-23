@@ -56,7 +56,12 @@ class _AllEventsState extends State<AllEvents> {
               );
             }
             );
+          }
 
+        // ignore: missing_return, missing_return
+        else if(snapshot.data == null)
+          {
+              return Text('No data is found');
           }
 
         else

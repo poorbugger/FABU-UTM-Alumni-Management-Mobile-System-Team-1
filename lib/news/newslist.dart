@@ -55,6 +55,12 @@ class _AllNewsState extends State<AllNews> {
                 );
 
               }
+
+              else if(snapshot.data == null)
+              {
+                return Text('No data is found');
+              }
+
               else
                 {
                   return SpinKitDualRing(
