@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sda/events/event.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:sda/main_drawer.dart';
 
 class AllEvents extends StatefulWidget {
 
@@ -28,9 +29,9 @@ class _AllEventsState extends State<AllEvents> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
-        title: Text('Event'),
+        title: Text('Events'),
       ),
+      drawer: MainDrawer(),
       body: Container(
           padding: EdgeInsets.all(10),
     child: FutureBuilder<List>(

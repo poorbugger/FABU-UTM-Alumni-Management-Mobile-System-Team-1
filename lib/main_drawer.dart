@@ -60,6 +60,16 @@ class _MainDrawerState extends State<MainDrawer> {
            ),
          ),
          ListTile(
+           leading: Icon(Icons.home),
+           title: Text('Home',
+             style: TextStyle(fontSize: 18,),),
+           onTap: () {
+             Navigator.pushNamed(context, '/landing');
+           },
+         ),
+
+
+         ListTile(
            leading: Icon(Icons.person),
            title: Text('Profile',
            style: TextStyle(fontSize: 18,),),
