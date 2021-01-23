@@ -45,7 +45,7 @@ class _LoginPageState extends State<LoginPage> {
       jsonResponse = json.decode(response.body);
       if(jsonResponse != null) {
         setState(() {
-          _isLoading = false;
+          _isLoading = true;
         });
         sharedPreferences.setString("token", jsonResponse['token']);
         Navigator.of(context).pushAndRemoveUntil(
