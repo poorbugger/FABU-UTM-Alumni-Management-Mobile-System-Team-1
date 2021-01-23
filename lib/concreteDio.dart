@@ -53,8 +53,8 @@ class ConcreteDio extends DioClass
 
   }
 
-  Future<List> getAlumnis() async{
-    var response =await Dio().get(getAlumniUrl());
+  Future<List> getAlumnis(String action) async{
+    var response =await Dio().get(getData(action));
     return response.data['data'];
   }
 }

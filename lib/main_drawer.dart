@@ -1,15 +1,31 @@
 import 'package:flutter/material.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:sda/auth/login.dart';
 
 class MainDrawer extends StatefulWidget{
-
-
   @override
   _MainDrawerState createState() => _MainDrawerState();
 }
 
 class _MainDrawerState extends State<MainDrawer> {
   final GlobalKey<_MainDrawerState> _mainDrawerState = GlobalKey<_MainDrawerState>();
+
+  SharedPreferences sharedPreferences;
+
+  BuildContext get context => null;
+
+  @override
+  void initState() {
+    checkLoginStatus();
+  }
+
+  checkLoginStatus() async {
+    sharedPreferences = await SharedPreferences.getInstance();
+    if(sharedPreferences.getString("token") == null) {
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage()), (Route<dynamic> route) => false);
+    }
+  }
+
 
   @override
 
@@ -91,7 +107,11 @@ class _MainDrawerState extends State<MainDrawer> {
            leading: Icon(Icons.arrow_back),
            title: Text('Logout',
              style: TextStyle(fontSize: 18,),),
-           onTap: null,
+           onTap: () {
+             sharedPreferences.clear();
+             sharedPreferences.commit();
+             Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage()), (Route<dynamic> route) => false);
+           },
          ),
 
 

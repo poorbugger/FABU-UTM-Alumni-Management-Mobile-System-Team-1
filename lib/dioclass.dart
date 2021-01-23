@@ -10,13 +10,13 @@ class DioClass{
 
       case 'news':
         return "https://restcountries.eu/rest/v2/all";
+
+      case 'alumnis':
+         return "https://reqres.in/api/unknown";
     }
   }
 
 
 
-  String getAlumniUrl()
-  {
-    return "https://reqres.in/api/unknown";
-  }
+
 }

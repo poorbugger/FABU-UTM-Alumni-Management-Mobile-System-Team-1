@@ -25,7 +25,7 @@ class _AllProfileState extends State<AllProfile> {
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 5),
         child: FutureBuilder<List>(
-          future: cd.getAlumnis(),
+          future: cd.getAlumnis("alumnis"),
           builder: (BuildContext context, AsyncSnapshot<List> snapshot){
             if(snapshot.hasData)
               {
