@@ -35,7 +35,7 @@ class _AllEventsState extends State<AllEvents> {
     child: FutureBuilder<List>(
     future: cD.getEvents("events"), // a previously-obtained Future<String> or null
     builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
-        if(snapshot.hasData)
+        if(snapshot.hasData) //Implementation of FlowBased Construction Design
           {
             return ListView.builder(
                 itemBuilder: (BuildContext context, int index){
