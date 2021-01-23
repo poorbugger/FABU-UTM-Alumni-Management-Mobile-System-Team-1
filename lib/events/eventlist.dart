@@ -6,8 +6,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sda/main_drawer.dart';
 
 class AllEvents extends StatefulWidget {
-
-
   @override
   _AllEventsState createState() => _AllEventsState();
 }
@@ -58,7 +56,6 @@ class _AllEventsState extends State<AllEvents> {
             );
           }
 
-        // ignore: missing_return, missing_return
         else if(snapshot.data == null)
           {
               return Text('No data is found');
