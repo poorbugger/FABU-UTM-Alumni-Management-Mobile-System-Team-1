@@ -17,6 +17,8 @@ class DioClass{
 
   String getAlumniUrl()
   {
+    //10.0.2.2:8080/Alumni_System/mobile-api/alumni/getdata
     return "https://reqres.in/api/unknown";
+
   }
 }
