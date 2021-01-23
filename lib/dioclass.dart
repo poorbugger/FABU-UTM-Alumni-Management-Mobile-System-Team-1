@@ -1,13 +1,19 @@
 
 class DioClass{
-  String getEventUrl(){
-    return "https://restcountries.eu/rest/v2/all";
-}
 
-  String getNewsUrl()
+  String getData(String action)
   {
+    switch(action)
+    {
+      case 'events':
+        return "https://restcountries.eu/rest/v2/all";
 
+      case 'news':
+        return "https://restcountries.eu/rest/v2/all";
+    }
   }
+
+
 
   String getAlumniUrl()
   {

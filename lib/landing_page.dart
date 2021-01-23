@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sda/main_drawer.dart';
 
 
 class Landing extends StatefulWidget {
@@ -19,6 +20,10 @@ class _LandingState extends State<Landing>
     var cardTextStyle = TextStyle(fontFamily: "Montserrat Regular", fontSize: 14, color: Color.fromRGBO(63, 63, 63, 1));
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Home Page'),
+      ),
+      drawer: MainDrawer(),
       body: Stack(
         children: <Widget>[
           Container(

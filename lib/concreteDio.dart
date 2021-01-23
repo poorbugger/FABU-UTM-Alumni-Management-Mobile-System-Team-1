@@ -6,8 +6,8 @@ import 'package:dio/dio.dart';
 class ConcreteDio extends DioClass
 {
 
-  Future<List> getEvents() async{
-    var response = await Dio().get(getEventUrl());
+  Future<List> getEvents(String action) async{
+    var response = await Dio().get(getData(action));
     return response.data;
   }
 

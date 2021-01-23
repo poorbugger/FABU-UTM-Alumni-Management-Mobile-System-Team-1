@@ -12,6 +12,7 @@ import 'Report/EventInvolvement.dart';
 import 'landing_page.dart';
 
 void main() {
+
   runApp(MaterialApp(
     initialRoute: '/', //later when we done /loading will be default
     routes: {

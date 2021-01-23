@@ -34,7 +34,7 @@ class _AllEventsState extends State<AllEvents> {
       body: Container(
           padding: EdgeInsets.all(10),
     child: FutureBuilder<List>(
-    future: cD.getEvents(), // a previously-obtained Future<String> or null
+    future: cD.getEvents("events"), // a previously-obtained Future<String> or null
     builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
         if(snapshot.hasData)
           {
