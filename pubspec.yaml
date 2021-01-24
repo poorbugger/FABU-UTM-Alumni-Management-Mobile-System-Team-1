@@ -63,6 +63,7 @@ flutter:
      - assets/images/eventG.png
      - assets/images/sponsor.png
      - assets/images/top_header.png
+     - assets/images/logactivity.png
 
   fonts:
      - family: Montserrat Regular

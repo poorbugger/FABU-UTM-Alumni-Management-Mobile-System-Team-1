@@ -102,7 +102,14 @@ class _MainDrawerState extends State<MainDrawer> {
              Navigator.pushNamed(context, '/view_events_list');
            },
          ),
-
+         ListTile(
+           leading: Icon(Icons.insert_chart),
+           title: Text('Log Activity',
+             style: TextStyle(fontSize: 18,),),
+           onTap: () {
+             Navigator.pushNamed(context, '/logactivity');
+           },
+         ),
          ListTile(
            leading: Icon(Icons.arrow_back),
            title: Text('Logout',
