@@ -12,7 +12,8 @@ class DioClass{
         return "https://restcountries.eu/rest/v2/all";
 
       case 'alumnis':
-         return "https://reqres.in/api/unknown";
+
+         return "https://sheltered-scrubland-74365.herokuapp.com/index";
     }
   }
 

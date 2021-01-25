@@ -24,7 +24,8 @@ class ConcreteDio extends DioClass
     switch(response.statusCode)
     {
       case 200:
-        return response.data;
+        print(response.data);
+        return response.data['index'];
 
       case 404:
         {
@@ -55,6 +56,6 @@ class ConcreteDio extends DioClass
 
   Future<List> getAlumnis(String action) async{
     var response =await Dio().get(getData(action));
-    return response.data['data'];
+    return response.data;
   }
 }

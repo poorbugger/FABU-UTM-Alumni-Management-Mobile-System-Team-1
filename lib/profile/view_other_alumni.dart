@@ -12,7 +12,7 @@ class OtherAlumni extends StatelessWidget {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         backgroundColor: Colors.indigo[600],
-        title: Text(alumni['name']),
+        title: Text(alumni['alumniName']),
         centerTitle: true,
       ),
       body:Padding(
@@ -57,7 +57,7 @@ class OtherAlumni extends StatelessWidget {
                 ),
 
                 Text(
-                  alumni['name'],
+                  alumni['title']+" "+ alumni['alumniName'],
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -70,7 +70,7 @@ class OtherAlumni extends StatelessWidget {
             Row(
               children: <Widget>[
                 Text(
-                  'ID: ',
+                  'Email: ',
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -81,7 +81,7 @@ class OtherAlumni extends StatelessWidget {
                 ),
 
                 Text(
-                  alumni['id'].toString(),
+                  alumni['alumniEmail'].toString(),
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -105,7 +105,7 @@ class OtherAlumni extends StatelessWidget {
                 ),
 
                 Text(
-                  alumni['year'].toString(),
+                  alumni['graduateYear'].toString(),
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -156,7 +156,7 @@ class OtherAlumni extends StatelessWidget {
                 ),
 
                 Text(
-                  alumni['color'].toString(),
+                  alumni['batchName'].toString(),
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -169,7 +169,7 @@ class OtherAlumni extends StatelessWidget {
             Row(
               children: <Widget>[
                 Text(
-                  'Matric No: ',
+                  'Level: ',
                   style: TextStyle(
                     fontSize: 20,
                   ),
@@ -180,7 +180,7 @@ class OtherAlumni extends StatelessWidget {
                 ),
 
                 Text(
-                  alumni['pantone_value'].toString(),
+                  alumni['eduLevel'].toString(),
                   style: TextStyle(
                     fontSize: 20,
                   ),

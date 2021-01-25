@@ -37,15 +37,16 @@ class _LoginPageState extends State<LoginPage> {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
     Map data = {
       'email': email,
-      'password': pass
+      'password': pass,
     };
     var jsonResponse = null;
+   //login
     var response = await http.post("https://reqres.in/api/login", body: data);
     if(response.statusCode == 200) {
       jsonResponse = json.decode(response.body);
       if(jsonResponse != null) {
         setState(() {
-          _isLoading = true;
+          _isLoading = false;
         });
         sharedPreferences.setString("token", jsonResponse['token']);
         Navigator.of(context).pushAndRemoveUntil(
@@ -55,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
     }
     else {
       setState(() {
-        _isLoading = false;
+        _isLoading = true;
       });
       print(response.body);
     }

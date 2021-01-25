@@ -111,6 +111,25 @@ class _LandingState extends State<Landing>
                             ),
                           ),
                         ),
+
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/search');
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)
+                            ),
+                            elevation: 4,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                               new Image.network("https://cdn0.iconfinder.com/data/icons/business-management-1-8/256/b-45-256.png", height:128),
+                                Text('Connect with others', style: cardTextStyle,)
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sda/profile/view_other_alumni.dart';
 import 'package:sda/concreteDio.dart';
-import 'dart:async';
+
 class AllProfile extends StatefulWidget {
   @override
   _AllProfileState createState() => _AllProfileState();
@@ -43,7 +42,7 @@ class _AllProfileState extends State<AllProfile> {
                        child: Card(
                          child: ListTile(
 
-                           title: Text(snapshot.data[index]['name']),
+                           title: Text(snapshot.data[index]['alumniName']),
                          ),
                        ),
                      );
@@ -51,13 +50,12 @@ class _AllProfileState extends State<AllProfile> {
               }
 
 
-
+              else {
               return SpinKitDualRing(
                 color: Colors.blue[900],
                 size: 50.0,
               );
-
-
+            }
           },
 
 
