@@ -66,9 +66,10 @@ class _LandingState extends State<Landing>
                   ),
                   Expanded(
                     child: GridView.count(
-                        crossAxisCount: 2,
+                        crossAxisCount: 1,
                         mainAxisSpacing: 10,
                         crossAxisSpacing: 10,
+                      childAspectRatio: (90 / 50),
                       primary: false,
                       children: <Widget>[
                         GestureDetector(
@@ -107,6 +108,25 @@ class _LandingState extends State<Landing>
                                 SvgPicture.network(
                                   'https://image.flaticon.com/icons/svg/1904/1904565.svg', height: 128,),
                                 Text('Events', style: cardTextStyle,)
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/logactivity');
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)
+                            ),
+                            elevation: 4,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                SvgPicture.network(
+                                  'https://image.flaticon.com/icons/svg/1904/1904437.svg', height: 128,),
+                                Text('Log Activity', style: cardTextStyle,)
                               ],
                             ),
                           ),

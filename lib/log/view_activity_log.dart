@@ -78,7 +78,7 @@ class _LogActivityPageState extends State<LogActivityPage> {
 class LogImageAsset extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    AssetImage assetImage = AssetImage('assets/images/logo.png');
+    AssetImage assetImage = AssetImage('assets/images/logactivity.png');
     Image image = Image(image:assetImage, width:130.0, height:130.0);
     return Container(child: image,);
 
