@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter_svg: ^0.19.2+1
   flutter_bloc: ^6.1.1
+  flip_card: ^0.4.4
 
   flutter:
     sdk: flutter
