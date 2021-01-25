@@ -34,7 +34,7 @@ class _AllNewsState extends State<AllNews> {
         child: FutureBuilder<List>(
             future: news, // a previously-obtained Future<String> or null
             builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
-              if(snapshot.hasData)
+              if(snapshot.hasData) //Implementation of FlowBased Construction Design
               {
                 return ListView.builder(
                     itemBuilder: (BuildContext context, int index){
@@ -55,6 +55,12 @@ class _AllNewsState extends State<AllNews> {
                 );
 
               }
+
+              else if(snapshot.data == null)
+              {
+                return Text('No data is found');
+              }
+
               else
                 {
                   return SpinKitDualRing(

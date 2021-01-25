@@ -66,9 +66,10 @@ class _LandingState extends State<Landing>
                   ),
                   Expanded(
                     child: GridView.count(
-                        crossAxisCount: 2,
+                        crossAxisCount: 1,
                         mainAxisSpacing: 10,
                         crossAxisSpacing: 10,
+                      childAspectRatio: (90 / 50),
                       primary: false,
                       children: <Widget>[
                         GestureDetector(
@@ -111,10 +112,9 @@ class _LandingState extends State<Landing>
                             ),
                           ),
                         ),
-
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, '/search');
+                            Navigator.pushNamed(context, '/logactivity');
                           },
                           child: Card(
                             shape: RoundedRectangleBorder(
@@ -124,8 +124,9 @@ class _LandingState extends State<Landing>
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
-                               new Image.network("https://cdn0.iconfinder.com/data/icons/business-management-1-8/256/b-45-256.png", height:128),
-                                Text('Connect with others', style: cardTextStyle,)
+                                SvgPicture.network(
+                                  'https://image.flaticon.com/icons/svg/1904/1904437.svg', height: 128,),
+                                Text('Log Activity', style: cardTextStyle,)
                               ],
                             ),
                           ),

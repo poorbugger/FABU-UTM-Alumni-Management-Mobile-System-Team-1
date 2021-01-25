@@ -6,8 +6,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sda/main_drawer.dart';
 
 class AllEvents extends StatefulWidget {
-
-
   @override
   _AllEventsState createState() => _AllEventsState();
 }
@@ -37,7 +35,7 @@ class _AllEventsState extends State<AllEvents> {
     child: FutureBuilder<List>(
     future: cD.getEvents("events"), // a previously-obtained Future<String> or null
     builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
-        if(snapshot.hasData)
+        if(snapshot.hasData) //Implementation of FlowBased Construction Design
           {
             return ListView.builder(
                 itemBuilder: (BuildContext context, int index){
@@ -56,7 +54,11 @@ class _AllEventsState extends State<AllEvents> {
               );
             }
             );
+          }
 
+        else if(snapshot.data == null)
+          {
+              return Text('No data is found');
           }
 
         else

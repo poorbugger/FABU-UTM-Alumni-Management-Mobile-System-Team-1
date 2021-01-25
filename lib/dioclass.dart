@@ -6,7 +6,7 @@ class DioClass{
     switch(action)
     {
       case 'events':
-        return "https://restcountries.eu/rest/v2/all";
+        return "https://reqres.in/api/users/23";
 
       case 'news':
         return "https://restcountries.eu/rest/v2/all";

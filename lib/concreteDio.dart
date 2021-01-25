@@ -6,7 +6,7 @@ import 'package:dio/dio.dart';
 class ConcreteDio extends DioClass
 {
 
-  Future<List> getEvents(String action) async{
+  Future<List> getEvents(String action) async{ //Table Based and State Based Implementation
     var response = await Dio().get(getData(action));
 
     void executeClientErrorState() async{
