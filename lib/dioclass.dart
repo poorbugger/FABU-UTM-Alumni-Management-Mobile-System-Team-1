@@ -6,7 +6,7 @@ class DioClass{
     switch(action)
     {
       case 'events':
-        return "https://reqres.in/api/users/23";
+        return "http://10.0.2.2:8080/testrestfulapi/webresources/testcontroller/getData";
 
       case 'news':
         return "https://restcountries.eu/rest/v2/all";

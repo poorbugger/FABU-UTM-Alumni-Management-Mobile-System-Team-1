@@ -38,9 +38,10 @@ class _AllEventsState extends State<AllEvents> {
         if(snapshot.hasData) //Implementation of FlowBased Construction Design
           {
             return ListView.builder(
+                itemCount:snapshot.data.length,
                 itemBuilder: (BuildContext context, int index){
               return GestureDetector(
-                onTap: (){ Navigator.of(context).push(MaterialPageRoute(builder: (context)=>event(snapshot.data[index]['name']),
+                onTap: (){ Navigator.of(context).push(MaterialPageRoute(builder: (context)=>event(snapshot.data[index]),
                   ),
                 );
                 },
@@ -58,6 +59,7 @@ class _AllEventsState extends State<AllEvents> {
 
         else if(snapshot.data == null)
           {
+
               return Text('No data is found');
           }
 
