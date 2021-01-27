@@ -10,11 +10,24 @@ class Landing extends StatefulWidget {
 
 }
 
-class _LandingState extends State<Landing>
-{
+class _LandingState extends State<Landing> {
+  //final Map alumni;
+  //Landing({this.alumni})
+  //override
+  //initstate{
+  // checkLoginStatus();
+  // }
+  // checkLoginStatus() async{
+  //   SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
+  //   if(sharedPreferences.getString("user")==null)
+  //   {
+  //     Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage()), (Route<dynamic> route) => false);
+  //   }
+  // }
+
+
   @override
   Widget build(BuildContext context) {
-
     var size = MediaQuery.of(context).size;
 
     var cardTextStyle = TextStyle(fontFamily: "Montserrat Regular", fontSize: 14, color: Color.fromRGBO(63, 63, 63, 1));
@@ -57,7 +70,9 @@ class _LandingState extends State<Landing>
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
+                            //Text(alumni['alumniName'], style: TextStyle(...)),
                             Text('John', style: TextStyle(fontFamily: 'Montserrat Medium', color: Colors.white, fontSize:20),),
+                            //Text(alumni['batchNo']),
                             Text('432434'),
                           ],
                         ),
@@ -75,6 +90,10 @@ class _LandingState extends State<Landing>
                         GestureDetector(
                           onTap: () {
                             Navigator.pushNamed(context, '/viewprofile');
+                            // Navigator.of(context).pushAndRemoveUntil(
+                            //             MaterialPageRoute(builder:
+                            //                 (BuildContext context) => Profile(alumni: alumni)), (Route<dynamic> route) => false);
+
                           },
                           child: Card(
                             shape: RoundedRectangleBorder(
@@ -144,7 +163,7 @@ class _LandingState extends State<Landing>
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 SvgPicture.network(
-                                  'https://www.flaticon.com/svg/vstatic/svg/1256/1256650.svg?token=exp=1611552220~hmac=e0b21148559e564b42a3415f9ac42fdc', height: 128,),
+                                  'https://image.flaticon.com/icons/svg/1256/1256650.svg', height: 128,),
                                 Text('Connect with others', style: cardTextStyle,)
                               ],
                             ),

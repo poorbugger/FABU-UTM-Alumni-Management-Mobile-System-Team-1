@@ -7,14 +7,15 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+//final Map alumni;
+// ProfileState({this.alumni});
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        backgroundColor: Colors.indigo[600],
+        backgroundColor: Colors.blue,
         toolbarHeight: 100.0,
         title: Text('My Profile'),
         centerTitle: true,
@@ -32,6 +33,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Text(
+              //alumni['alumniName'],
               'Ad O`Ryan Junior',
               style: TextStyle(
                 fontSize: 20,
@@ -40,6 +42,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             SizedBox(height: 15,),
+            //alumni['graduateYear']
             Text('2018 - 2022'),
             Divider(
               color: Colors.black,
@@ -51,6 +54,7 @@ class _ProfileState extends State<Profile> {
                 Icon(Icons.email_rounded),
                 SizedBox(width: 10,),
                 Text(
+                  //alumni['alumniEmail']
                     'testemail.com',
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
@@ -69,6 +73,7 @@ class _ProfileState extends State<Profile> {
                 Icon(Icons.account_balance_sharp),
                 SizedBox(width: 10),
                 Text(
+                  //alumniDegree
                   'Bachelor of Quantity Surveying',
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
@@ -86,6 +91,10 @@ class _ProfileState extends State<Profile> {
                 color: Colors.indigo[300],
                 onPressed: () {
                   Navigator.pushNamed(context, '/viewalumniprofile');
+                  // Navigator.of(context).pushAndRemoveUntil(
+                  //             MaterialPageRoute(builder:
+                  //                 (BuildContext context) => ViewAlumniProfile(alumni: alumni)), (Route<dynamic> route) => false);
+
                 },
                 icon: Icon(Icons.edit),
                 label: Text('More Details..'))

@@ -6,6 +6,8 @@ class ViewAlumniProfile extends StatefulWidget {
 }
 
 class _ViewAlumniProfileState extends State<ViewAlumniProfile> {
+  //final Map alumni;
+  //ViewAlumniProfile({this.alumni});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
