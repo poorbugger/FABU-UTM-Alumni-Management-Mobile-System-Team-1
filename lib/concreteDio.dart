@@ -25,7 +25,7 @@ class ConcreteDio extends DioClass
     {
       case 200:
         print(response.data);
-        return response.data['index'];
+        return response.data;
 
       case 404:
         {

@@ -112,6 +112,27 @@ class _LandingState extends State<Landing>
                             ),
                           ),
                         ),
+
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/view_news_list');
+                          },
+                          child: Card(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8)
+                            ),
+                            elevation: 4,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                SvgPicture.network(
+                                  'https://www.flaticon.com/svg/vstatic/svg/4108/4108509.svg?token=exp=1611694237~hmac=8af19b2a63802a9447f3a45a52e417ff', height: 128,),
+                                Text('News', style: cardTextStyle,)
+                              ],
+                            ),
+                          ),
+                        ),
+
                         GestureDetector(
                           onTap: () {
                             Navigator.pushNamed(context, '/logactivity');
@@ -144,7 +165,7 @@ class _LandingState extends State<Landing>
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 SvgPicture.network(
-                                  'https://www.flaticon.com/svg/vstatic/svg/1256/1256650.svg?token=exp=1611552220~hmac=e0b21148559e564b42a3415f9ac42fdc', height: 128,),
+                                  'https://www.flaticon.com/svg/vstatic/svg/2885/2885417.svg?token=exp=1611695098~hmac=2af326e5f82a2c2d7ff547cb37077bba', height: 128,),
                                 Text('Connect with others', style: cardTextStyle,)
                               ],
                             ),

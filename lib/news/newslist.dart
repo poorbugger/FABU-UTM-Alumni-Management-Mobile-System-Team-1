@@ -1,45 +1,48 @@
+import 'package:sda/concreteDio.dart';
 import 'package:flutter/material.dart';
-import 'package:sda/news/news.dart';
+import 'package:sda/events/event.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:sda/main_drawer.dart';
+import 'package:sda/news/news.dart';
+
 class AllNews extends StatefulWidget {
   @override
   _AllNewsState createState() => _AllNewsState();
 }
 
 class _AllNewsState extends State<AllNews> {
-  Future<List> news;
-
-  Future<List> getNews() async{
-    var response = await Dio().get("https://restcountries.eu/rest/v2/all");
-    return response.data;
-  }
+  final ConcreteDio cD = ConcreteDio();
+  //Future<List> events;
 
 
-  @override
-  void initState() {
-    news = getNews();
-    super.initState();
-  }
+
+
+  // @override
+  // void initState() {
+  //   //events = getEvents();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.grey,
-        title: Text('Event'),
+        title: Text('News'),
       ),
+      drawer: MainDrawer(),
       body: Container(
         padding: EdgeInsets.all(10),
         child: FutureBuilder<List>(
-            future: news, // a previously-obtained Future<String> or null
+            future: cD.getEvents("events"), // a previously-obtained Future<String> or null
             builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
               if(snapshot.hasData) //Implementation of FlowBased Construction Design
-              {
+                  {
                 return ListView.builder(
+                    itemCount:snapshot.data.length,
                     itemBuilder: (BuildContext context, int index){
                       return GestureDetector(
-                        onTap: (){ Navigator.of(context).push(MaterialPageRoute(builder: (context)=> news_feed(snapshot.data[index]['name']),
+                        onTap: (){ Navigator.of(context).push(MaterialPageRoute(builder: (context)=>news_feed(snapshot.data[index]),
                         ),
                         );
                         },
@@ -48,27 +51,26 @@ class _AllNewsState extends State<AllNews> {
                             elevation: 10,
                             child: Padding(
                               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-                              child:Text(snapshot.data[index]['name'], style: TextStyle(fontSize: 18)),)
+                              child:Text(snapshot.data[index]['eventName'], style: TextStyle(fontSize: 18)),)
                         ),
                       );
                     }
                 );
-
               }
 
               else if(snapshot.data == null)
               {
+
                 return Text('No data is found');
               }
 
               else
-                {
-                  return SpinKitDualRing(
-                      color: Colors.blue[900],
-                      size: 50.0,
-                  );
-                }
-
+              {
+                return SpinKitDualRing(
+                  color: Colors.blue[900],
+                  size: 50.0,
+                );
+              }
             }
         ),
       ),

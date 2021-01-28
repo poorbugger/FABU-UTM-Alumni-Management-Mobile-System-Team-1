@@ -50,7 +50,7 @@ class _AllEventsState extends State<AllEvents> {
                     elevation: 10,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-                      child:Text(snapshot.data[index]['name'], style: TextStyle(fontSize: 18)),)
+                      child:Text(snapshot.data[index]['eventName'], style: TextStyle(fontSize: 18)),)
                 ),
               );
             }
