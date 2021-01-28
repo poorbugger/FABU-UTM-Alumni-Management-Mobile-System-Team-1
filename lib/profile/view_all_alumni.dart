@@ -14,11 +14,11 @@ class _AllProfileState extends State<AllProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+
       appBar: AppBar(
-        backgroundColor: Colors.indigo[600],
+        backgroundColor: Colors.blue,
         toolbarHeight: 100.0,
-        title: Text('Others'),
+        title: Text('Connect'),
         centerTitle: true,
       ),
       body: Padding(
@@ -28,6 +28,7 @@ class _AllProfileState extends State<AllProfile> {
           builder: (BuildContext context, AsyncSnapshot<List> snapshot){
             if(snapshot.hasData)
               {
+                snapshot.data.sort((a,b)=>a['alumniName'].compareTo(b['alumniName']));
                 return ListView.builder(
                     itemCount:snapshot.data.length,
                     itemBuilder: (BuildContext context, int index){

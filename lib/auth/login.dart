@@ -40,10 +40,25 @@ class _LoginPageState extends State<LoginPage> {
       'password': pass.trim(),
     };
     var jsonResponse = null;
-   //login
     var response = await http.post("https://reqres.in/api/login", body: data);
+    //var response = await Dio().get("loginweburlhere"+email+"/"+"pass");
     if(response.statusCode == 200) {
+      //response.data contains the valid user data.
+      //
+      //if(response.data['alumniEmail']==null||response.data['alumniEmail]=="")
+      //
+      // _isFalse=true; // indicate that the data is null and therefore should be redirected to login screen
+      // _isLoading=false// to stop the spinner from spinning and redirect to the login screen
+      //else
+      // SharedPreferences.setString("validUser", "validUser"); // to pass to other pages to indicate that current session is valid
+      // _isLoading=false // this time to stop spinner and redirect  to landing page
+      // Navigator.of(context).pushAndRemoveUntil(
+      //             MaterialPageRoute(builder:
+      //                 (BuildContext context) => Landing(alumni: response.data)), (Route<dynamic> route) => false);
+      // List<String> list=[response.data['alumniName'],response.data['alumniEmail']];
+      // sharedPreferences.setStringList("drawer", list); // this one to share to the drawer a.k.a the sidebar
       jsonResponse = json.decode(response.body);
+
       if(jsonResponse != null) {
         setState(() {
           _isLoading = false;
