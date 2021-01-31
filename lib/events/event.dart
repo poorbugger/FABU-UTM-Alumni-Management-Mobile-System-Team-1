@@ -16,15 +16,32 @@ class event extends StatelessWidget{
       ),
 
 
-      body: SingleChildScrollView(
+      body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  stops: [
+                    0.1,
+                    0.4,
+                    0.6,
+                    0.9
+                  ],
+                  colors: [
+                    Colors.yellow,
+                    Colors.red,
+                    Colors.indigo,
+                    Colors.teal
+                  ])),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
 
             child: Column(
+
               children: <Widget>[
+
                 ListTile(
-                  title: Text("Event:",  textAlign: TextAlign.center, style: TextStyle(fontSize: 30, fontFamily: 'Montserrat Medium')),
-                  subtitle: Text(country['eventName'],  textAlign: TextAlign.center, style: TextStyle(fontSize: 25, fontFamily: 'Montserrat Medium')),
+                  //title: Text("Event:",  textAlign: TextAlign.center, style: TextStyle(fontSize: 30, fontFamily: 'Montserrat Medium', color: Colors.black)),
+                  title: Text(country['eventName'],  textAlign: TextAlign.center, style: TextStyle(fontSize: 30, fontFamily: 'Montserrat Medium', color: Colors.black)),
                 ),
 
                 SizedBox(height: 20),
@@ -32,8 +49,14 @@ class event extends StatelessWidget{
 
                 SizedBox(height: 20),
                 ListTile(
-                  title: Text("Description", style: TextStyle(fontSize: 20, fontFamily: 'Montserrat Medium')),
-                  subtitle: Text(country['eventDescription'], style: TextStyle(fontSize: 15, fontFamily: 'Montserrat Regular')),
+                  title: Text("Venue", style: TextStyle(fontSize: 30, fontFamily: 'Montserrat Medium', color: Colors.white)),
+                  subtitle: Text(country['eventVenue'], style: TextStyle(fontSize: 20, fontFamily: 'Montserrat Regular', color: Colors.white)),
+                ),
+
+                SizedBox(height: 20),
+                ListTile(
+                  title: Text("Description", style: TextStyle(fontSize: 30, fontFamily: 'Montserrat Medium', color: Colors.white)),
+                  subtitle: Text(country['eventDescription'], style: TextStyle(fontSize: 20, fontFamily: 'Montserrat Regular', color: Colors.white)),
                 ),
               ],
             ),
@@ -87,21 +110,7 @@ class event extends StatelessWidget{
             ),
           ),
 
-          MaterialButton(
-            onPressed: () {
 
-            },
-            color: Colors.cyan,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(country['eventVenue'], style: TextStyle(fontSize: 15, fontFamily: "Montserrat Regular", color: Colors.white,
-              ),
-              ),
-            ),
-          )
         ]
       )
     );
@@ -114,7 +123,7 @@ class event extends StatelessWidget{
             Hero(tag: country['eventName'], child: Container(
               height: 250,
                 width: double.infinity,
-              child: Text(country['eventDescription'], style: TextStyle(fontSize: 15, fontFamily: "Montserrat Regular")),
+              child: Text(country['eventDescription'], style: TextStyle(fontSize: 15, fontFamily: "Montserrat Regular", color: Colors.white,)),
             ),
             ),
 

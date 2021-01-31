@@ -15,20 +15,32 @@ class news_feed extends StatelessWidget{
       ),
 
 
-      body: SingleChildScrollView(
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [Colors.blue, Colors.red])),
         child: Padding(
           padding: const EdgeInsets.all(12.0),
 
           child: Column(
             children: <Widget>[
               ListTile(
-                title: Text("Title",  textAlign: TextAlign.left, style: TextStyle(fontFamily: 'Montserrat Medium')),
-                subtitle: Text(country['newsName'],  textAlign: TextAlign.left, style: TextStyle( fontFamily: 'Montserrat Medium')),
+                //title: Text("Title",  textAlign: TextAlign.left, style: TextStyle(fontFamily: 'Montserrat Medium', fontSize: 30, color: Colors.white)),
+                title: Text(country['newsName'],  textAlign: TextAlign.left, style: TextStyle( fontFamily: 'Montserrat Medium', fontSize: 30, color: Colors.white)),
               ),
-              SizedBox(height: 10),
+
+              SizedBox(height: 20),
               ListTile(
-                title: Text("Description", style: TextStyle( fontFamily: 'Montserrat Medium')),
-                subtitle: Text(country['newsDescription'], style: TextStyle(fontFamily: 'Montserrat Regular')),
+                title: Text("Date:", style: TextStyle( fontFamily: 'Montserrat Medium', fontSize: 20, color: Colors.white)),
+                subtitle: Text(country['newsDate'], style: TextStyle(fontFamily: 'Montserrat Regular', fontSize: 15, color: Colors.white)),
+              ),
+
+              SizedBox(height: 20),
+              ListTile(
+                title: Text("Description", style: TextStyle( fontFamily: 'Montserrat Medium', fontSize: 20, color: Colors.white)),
+                subtitle: Text(country['newsDescription'], style: TextStyle(fontFamily: 'Montserrat Regular', fontSize: 15, color: Colors.white)),
               ),
             ],
           ),
