@@ -7,17 +7,17 @@ import 'package:sda/Report/Paticipant.dart';
 class ReportEventHome extends StatelessWidget
 {
 final List<Participant> data=[
- Participant(year: "2015", parti: 30, barcolor: charts.ColorUtil.fromDartColor
+ Participant(year: "2015", parti: 12, barcolor: charts.ColorUtil.fromDartColor
    (Colors.blue)),
-  Participant(year: "2016", parti: 40, barcolor: charts.ColorUtil.fromDartColor
+  Participant(year: "2016", parti: 09, barcolor: charts.ColorUtil.fromDartColor
     (Colors.blue)),
-  Participant(year: "2017", parti: 35, barcolor: charts.ColorUtil.fromDartColor
+  Participant(year: "2017", parti: 06, barcolor: charts.ColorUtil.fromDartColor
     (Colors.blue)),
-  Participant(year: "2018", parti: 29, barcolor: charts.ColorUtil.fromDartColor
+  Participant(year: "2018", parti: 10, barcolor: charts.ColorUtil.fromDartColor
     (Colors.blue)),
-  Participant(year: "2019", parti: 20, barcolor: charts.ColorUtil.fromDartColor
+  Participant(year: "2019", parti: 16, barcolor: charts.ColorUtil.fromDartColor
     (Colors.blue)),
-  Participant(year: "2020", parti: 10, barcolor: charts.ColorUtil.fromDartColor
+  Participant(year: "2020", parti: 07, barcolor: charts.ColorUtil.fromDartColor
     (Colors.blue)),
 ];
   @override

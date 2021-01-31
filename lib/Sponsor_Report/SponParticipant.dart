@@ -7,6 +7,7 @@ class SponParticipant{
   final String year;
   final int parti;
   final charts.Color barcolor;
+
   SponParticipant({
       @required this.year,
       @required this.parti,
