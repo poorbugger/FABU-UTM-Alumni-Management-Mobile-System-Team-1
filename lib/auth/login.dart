@@ -59,9 +59,10 @@ class _LoginPageState extends State<LoginPage> {
           {
             if(alumni[i]['alumniEmail'].toString()==email && alumni[i]['password']==pass)
               {
-                print(alumni[i]['alumniEmail']);
+
                 validalumni=alumni[i];
                 sharedPreferences.setString("user", "valid");
+                sharedPreferences.setString("email", validalumni['alumniEmail'].toString());
                 print(ModalRoute.of(context).settings.name);
                 Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Landing(alumni: validalumni)),(Route<dynamic> route) => false);
 

@@ -56,10 +56,12 @@ class OtherAlumni extends StatelessWidget {
                   height: 10,
                 ),
 
-                Text(
-                  alumni['title']+" "+ alumni['alumniName'],
-                  style: TextStyle(
-                    fontSize: 20,
+                Flexible(
+                  child: Text(
+                     alumni['alumniName'],
+                    style: TextStyle(
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ],

@@ -4,21 +4,26 @@ import 'package:sda/main_drawer.dart';
 import 'package:sda/profile/view_other_alumni.dart';
 import 'package:sda/concreteDio.dart';
 
+
 class AllProfile extends StatefulWidget {
   final Map alumni;
-  const AllProfile({Key key, this.alumni}):super(key: key);
+  final String email;
+  const AllProfile({Key key, this.alumni, this.email}):super(key: key);
+
   @override
   _AllProfileState createState() => _AllProfileState();
 }
 
 class _AllProfileState extends State<AllProfile> {
 
+    String email;
    Map alumni;
-   _AllProfileState({this.alumni});
+   _AllProfileState({this.alumni,this.email});
   final ConcreteDio cd = ConcreteDio();
 
   @override
   Widget build(BuildContext context) {
+    print(widget.email);
     return Scaffold(
 
       appBar: AppBar(
@@ -35,6 +40,9 @@ class _AllProfileState extends State<AllProfile> {
           builder: (BuildContext context, AsyncSnapshot<List> snapshot){
             if(snapshot.hasData)
               {
+
+                snapshot.data.removeWhere((element) => element['alumniName'].toString()==widget.alumni['alumniName'].toString());
+                print(snapshot.data.length);
                 snapshot.data.sort((a,b)=>a['alumniName'].compareTo(b['alumniName']));
                 return ListView.builder(
                     itemCount:snapshot.data.length,

@@ -173,7 +173,7 @@ class _LandingState extends State<Landing> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => AllProfile(alumni: widget.alumni)),(Route<dynamic> route) => false);
+                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => AllProfile(alumni: widget.alumni,email: widget.alumni['alumniEmail'].toString(),)),(Route<dynamic> route) => false);
                           },
                           child: Card(
                             shape: RoundedRectangleBorder(
