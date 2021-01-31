@@ -121,7 +121,7 @@ class _MainDrawerState extends State<MainDrawer> {
            },
          ),
          ListTile(
-           leading: Icon(Icons.error_outline),
+           leading: Icon(Icons.article),
            title: Text('News',
              style: TextStyle(fontSize: 18,),),
            onTap: () {
