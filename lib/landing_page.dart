@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:sda/events/eventlist.dart';
+import 'package:sda/log/view_activity_log.dart';
 import 'package:sda/main_drawer.dart';
+import 'package:sda/news/newslist.dart';
+import 'package:sda/profile/view_all_alumni.dart';
 import 'package:sda/profile/view_profile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'auth/login.dart';
@@ -110,7 +114,7 @@ class _LandingState extends State<Landing> {
 
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, '/view_events_list');
+                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => AllEvents(alumni: widget.alumni)),(Route<dynamic> route) => false);
                           },
                           child: Card(
                             shape: RoundedRectangleBorder(
@@ -130,7 +134,7 @@ class _LandingState extends State<Landing> {
 
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, '/view_news_list');
+                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => AllNews(alumni: widget.alumni)),(Route<dynamic> route) => false);
                           },
                           child: Card(
                             shape: RoundedRectangleBorder(
@@ -150,7 +154,7 @@ class _LandingState extends State<Landing> {
 
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, '/logactivity');
+                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => LogActivityPage(alumni: widget.alumni)),(Route<dynamic> route) => false);
                           },
                           child: Card(
                             shape: RoundedRectangleBorder(
@@ -169,7 +173,7 @@ class _LandingState extends State<Landing> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, '/search');
+                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => AllProfile(alumni: widget.alumni)),(Route<dynamic> route) => false);
                           },
                           child: Card(
                             shape: RoundedRectangleBorder(

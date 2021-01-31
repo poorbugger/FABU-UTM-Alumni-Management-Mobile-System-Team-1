@@ -1,7 +1,6 @@
 import 'package:sda/concreteDio.dart';
 import 'package:flutter/material.dart';
 import 'package:sda/events/event.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sda/main_drawer.dart';
 

@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:sda/main_drawer.dart';
 import 'package:sda/profile/view_other_alumni.dart';
 import 'package:sda/concreteDio.dart';
 
 class AllProfile extends StatefulWidget {
+  final Map alumni;
+  const AllProfile({Key key, this.alumni}):super(key: key);
   @override
   _AllProfileState createState() => _AllProfileState();
 }
 
 class _AllProfileState extends State<AllProfile> {
+
+   Map alumni;
+   _AllProfileState({this.alumni});
   final ConcreteDio cd = ConcreteDio();
 
   @override
@@ -21,6 +27,7 @@ class _AllProfileState extends State<AllProfile> {
         title: Text('Connect'),
         centerTitle: true,
       ),
+      drawer: MainDrawer(alumni: widget.alumni),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 5,horizontal: 5),
         child: FutureBuilder<List>(
@@ -42,6 +49,7 @@ class _AllProfileState extends State<AllProfile> {
                        },
                        child: Card(
                          child: ListTile(
+                           leading: Icon(Icons.account_circle_sharp),
                            title: Text(snapshot.data[index]['alumniName']),
                          ),
                        ),
