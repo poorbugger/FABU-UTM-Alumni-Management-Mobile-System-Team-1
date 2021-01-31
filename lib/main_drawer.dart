@@ -118,7 +118,7 @@ class _MainDrawerState extends State<MainDrawer> {
            title: Text('News',
              style: TextStyle(fontSize: 18,),),
            onTap: () {
-             Navigator.pushNamed(context, '/view_news_list');
+             Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => AllNews(alumni: widget.alumni)),(Route<dynamic> route) => false);
            },
          ),
 

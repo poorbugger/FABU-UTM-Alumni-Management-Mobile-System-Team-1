@@ -61,28 +61,43 @@ class _LandingState extends State<Landing> {
               padding: EdgeInsets.all(16.0),
               child: Column(
                 children: <Widget>[
-                  Container(
-                    height: 64,
-                    margin: EdgeInsets.only(bottom: 20),
-                    child: Row(
+                  // Container(
+                  //   height: 64,
+                  //   margin: EdgeInsets.only(bottom: 20),
+                    Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        CircleAvatar(
-                          radius: 32,
-                          backgroundImage: NetworkImage('https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png'),
+                        Flexible(
+                          child: new Image.asset(
+                            'assets/images/fabu-logo.png',
+                            height: 38,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                        SizedBox(width: 16,),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
-                              Text(widget.alumni['alumniName'].toString(),style: TextStyle(fontFamily: 'Montserrat Medium', color: Colors.white, fontSize:20)),
-                            Text(widget.alumni['graduateYear'].toString()),
-                          ],
-                        ),
+
                       ],
-                    )
+                    ),
+                  SizedBox(height: 10),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+
+                      CircleAvatar(
+                        radius: 22,
+                        backgroundImage: NetworkImage('https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png'),
+                      ),
+                      SizedBox(width: 16,),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(widget.alumni['alumniName'].toString(),style: TextStyle(fontFamily: 'Montserrat Medium', color: Colors.white, fontSize:15)),
+                          Text(widget.alumni['graduateYear'].toString()),
+                        ],
+                      ),
+                    ],
                   ),
+                 // ),
                   Expanded(
                     child: GridView.count(
                         crossAxisCount: 2,
@@ -173,7 +188,7 @@ class _LandingState extends State<Landing> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => AllProfile(alumni: widget.alumni)),(Route<dynamic> route) => false);
+                            Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => AllProfile(alumni: widget.alumni,email: widget.alumni['alumniEmail'].toString(),)),(Route<dynamic> route) => false);
                           },
                           child: Card(
                             shape: RoundedRectangleBorder(
