@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
+import '../main_drawer.dart';
+
 
 class Profile extends StatefulWidget {
+
+  final Map alumni;
+  const Profile({Key key, this.alumni}):super(key: key);
   @override
   _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
-//final Map alumni;
-// ProfileState({this.alumni});
+  Map alumni;
+  _ProfileState({this.alumni});
 
 
   @override
@@ -20,6 +25,7 @@ class _ProfileState extends State<Profile> {
         title: Text('My Profile'),
         centerTitle: true,
       ),
+      drawer: MainDrawer(alumni: widget.alumni),
       body: Padding(
         padding: const EdgeInsets.all(25.0),
         child: Column(
@@ -33,8 +39,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Text(
-              //alumni['alumniName'],
-              'Ad O`Ryan Junior',
+              widget.alumni['alumniName'].toString(),
               style: TextStyle(
                 fontSize: 20,
                 letterSpacing: 1,
@@ -42,8 +47,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             SizedBox(height: 15,),
-            //alumni['graduateYear']
-            Text('2018 - 2022'),
+            Text(widget.alumni['graduateYear'].toString()),
             Divider(
               color: Colors.black,
               height: 50.0,
@@ -54,8 +58,7 @@ class _ProfileState extends State<Profile> {
                 Icon(Icons.email_rounded),
                 SizedBox(width: 10,),
                 Text(
-                  //alumni['alumniEmail']
-                    'testemail.com',
+                  widget.alumni['alumniEmail'].toString(),
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 16,

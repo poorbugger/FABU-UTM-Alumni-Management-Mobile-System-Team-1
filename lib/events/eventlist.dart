@@ -6,22 +6,19 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:sda/main_drawer.dart';
 
 class AllEvents extends StatefulWidget {
+  final Map alumni;
+  const AllEvents({Key key, this.alumni}):super(key: key);
+  //Dont delete the code above
   @override
   _AllEventsState createState() => _AllEventsState();
 }
 
 class _AllEventsState extends State<AllEvents> {
+  Map alumni;
+  _AllEventsState({this.alumni});
+  //Dont delete the code above
   final ConcreteDio cD = ConcreteDio();
- //Future<List> events;
 
-
-
-
-  // @override
-  // void initState() {
-  //   //events = getEvents();
-  //   super.initState();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +26,7 @@ class _AllEventsState extends State<AllEvents> {
       appBar: AppBar(
         title: Text('Events'),
       ),
-      drawer: MainDrawer(),
+      drawer: MainDrawer(alumni: widget.alumni),
       body: Container(
           padding: EdgeInsets.all(10),
     child: FutureBuilder<List>(

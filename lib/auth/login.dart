@@ -1,7 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sda/landing_page.dart';
 
@@ -11,9 +10,15 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-
   bool _isLoading = false;
-
+  bool _isValidate = false;
+  bool _isUserValid= false;
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light.copyWith(statusBarColor: Colors.transparent));
@@ -27,6 +32,15 @@ class _LoginPageState extends State<LoginPage> {
             headerSection(),
             textSection(),
             buttonSection(),
+            Center(
+              child: Text(
+                _isUserValid ? "Your credentials might be wrong" : "",
+                style: TextStyle(
+                  color: Colors.red,
+
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -34,47 +48,43 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   signIn(String email, pass) async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    Map data = {
-      'email': email.trim(),
-      'password': pass.trim(),
-    };
-    var jsonResponse = null;
-    var response = await http.post("https://reqres.in/api/login", body: data);
-    //var response = await Dio().get("loginweburlhere"+email+"/"+"pass");
-    if(response.statusCode == 200) {
-      //response.data contains the valid user data.
-      //
-      //if(response.data['alumniEmail']==null||response.data['alumniEmail]=="")
-      //
-      // _isFalse=true; // indicate that the data is null and therefore should be redirected to login screen
-      // _isLoading=false// to stop the spinner from spinning and redirect to the login screen
-      //else
-      // SharedPreferences.setString("validUser", "validUser"); // to pass to other pages to indicate that current session is valid
-      // _isLoading=false // this time to stop spinner and redirect  to landing page
-      // Navigator.of(context).pushAndRemoveUntil(
-      //             MaterialPageRoute(builder:
-      //                 (BuildContext context) => Landing(alumni: response.data)), (Route<dynamic> route) => false);
-      // List<String> list=[response.data['alumniName'],response.data['alumniEmail']];
-      // sharedPreferences.setStringList("drawer", list); // this one to share to the drawer a.k.a the sidebar
-      jsonResponse = json.decode(response.body);
+   var response = await Dio().get("https://sheltered-scrubland-74365.herokuapp.com/index");
+   List alumni = response.data;
+   var validalumni;
+   SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+   
+   if(response.statusCode==200)
+     {
+        for(int i=0;i<alumni.length;i++)
+          {
+            if(alumni[i]['alumniEmail'].toString()==email && alumni[i]['password']==pass)
+              {
+                print(alumni[i]['alumniEmail']);
+                validalumni=alumni[i];
+                sharedPreferences.setString("user", "valid");
+                print(ModalRoute.of(context).settings.name);
+                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Landing(alumni: validalumni)),(Route<dynamic> route) => false);
 
-      if(jsonResponse != null) {
-        setState(() {
-          _isLoading = false;
-        });
-        sharedPreferences.setString("token", jsonResponse['token']);
-        Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder:
-                (BuildContext context) => Landing()), (Route<dynamic> route) => false);
-      }
-    }
-    else {
+                _isUserValid=true;
+              }
+            else{
+              setState(() {
+                _isLoading=false;
+                _isUserValid=true;
+                _isValidate=false;
+              });
+            }
+          }
+       
+     }
+   
+   else{
       setState(() {
-        _isLoading = true;
+        _isLoading=false;
+        _isValidate=false;
       });
-      print(response.body);
-    }
+     
+   }
   }
 
   Container buttonSection() {
@@ -85,12 +95,18 @@ class _LoginPageState extends State<LoginPage> {
       margin: EdgeInsets.only(top: 15.0),
       // ignore: deprecated_member_use
       child: RaisedButton(
-        onPressed: emailController.text == "" || passwordController.text == "" ? null : () {
-          setState(() {
-            _isLoading = true;
-          });
-          signIn(emailController.text, passwordController.text);
-          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => Landing()), (Route<dynamic> route) => false);
+        onPressed:(){
+          if(emailController.text.isNotEmpty && passwordController.text.isNotEmpty) {
+            setState(() {
+              _isLoading = true;
+            });
+            signIn(emailController.text, passwordController.text);
+          }
+          else{
+            setState(() {
+              _isValidate=true;
+            });
+          }
         },
         elevation: 0.0,
         color: Colors.white30,
@@ -114,6 +130,7 @@ class _LoginPageState extends State<LoginPage> {
             style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
               labelText: "Email",
+              errorText: _isValidate ? "This field can't be empty": null,
               labelStyle: TextStyle(color: Colors.black),
             ),
           ),
@@ -125,6 +142,7 @@ class _LoginPageState extends State<LoginPage> {
             style: TextStyle(color: Colors.black),
             decoration: InputDecoration(
               labelText: "Password",
+              errorText: _isValidate ? "This field can't be empty":null,
               labelStyle: TextStyle(color: Colors.black),
             ),
           ),

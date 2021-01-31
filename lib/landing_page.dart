@@ -2,28 +2,30 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sda/main_drawer.dart';
+import 'package:sda/profile/view_profile.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'auth/login.dart';
 
 
 class Landing extends StatefulWidget {
-  @override
+  final Map alumni;
+  const Landing({Key key, this.alumni}):super(key: key);
+
+   @override
   _LandingState createState() => _LandingState();
 
 }
 
 class _LandingState extends State<Landing> {
-  //final Map alumni;
-  //Landing({this.alumni})
-  //override
-  //initstate{
-  // checkLoginStatus();
-  // }
-  // checkLoginStatus() async{
-  //   SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
-  //   if(sharedPreferences.getString("user")==null)
-  //   {
-  //     Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage()), (Route<dynamic> route) => false);
-  //   }
-  // }
+  Map alumni;
+  _LandingState({this.alumni});
+  checkLoginStatus() async{
+    SharedPreferences sharedPreferences= await SharedPreferences.getInstance();
+    if(sharedPreferences.getString("user")==null)
+    {
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage()), (Route<dynamic> route) => false);
+    }
+  }
 
 
   @override
@@ -36,7 +38,7 @@ class _LandingState extends State<Landing> {
       appBar: AppBar(
         title: Text('Home Page'),
       ),
-      drawer: MainDrawer(),
+      drawer: MainDrawer(alumni: widget.alumni),
       body: Stack(
         children: <Widget>[
           Container(
@@ -70,10 +72,8 @@ class _LandingState extends State<Landing> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            //Text(alumni['alumniName'], style: TextStyle(...)),
-                            Text('John', style: TextStyle(fontFamily: 'Montserrat Medium', color: Colors.white, fontSize:20),),
-                            //Text(alumni['batchNo']),
-                            Text('432434'),
+                              Text(widget.alumni['alumniName'].toString(),style: TextStyle(fontFamily: 'Montserrat Medium', color: Colors.white, fontSize:20)),
+                            Text(widget.alumni['graduateYear'].toString()),
                           ],
                         ),
                       ],
@@ -89,11 +89,7 @@ class _LandingState extends State<Landing> {
                       children: <Widget>[
                         GestureDetector(
                           onTap: () {
-                            Navigator.pushNamed(context, '/viewprofile');
-                            // Navigator.of(context).pushAndRemoveUntil(
-                            //             MaterialPageRoute(builder:
-                            //                 (BuildContext context) => Profile(alumni: alumni)), (Route<dynamic> route) => false);
-
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => Profile(alumni: widget.alumni)));
                           },
                           child: Card(
                             shape: RoundedRectangleBorder(
@@ -145,7 +141,7 @@ class _LandingState extends State<Landing> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: <Widget>[
                                 SvgPicture.network(
-                                  'https://www.flaticon.com/svg/vstatic/svg/4108/4108509.svg?token=exp=1611694237~hmac=8af19b2a63802a9447f3a45a52e417ff', height: 128,),
+                                  'https://image.flaticon.com/icons/svg/4108/4108509.svg', height: 128,),
                                 Text('News', style: cardTextStyle,)
                               ],
                             ),

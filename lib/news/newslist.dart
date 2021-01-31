@@ -7,22 +7,19 @@ import 'package:sda/main_drawer.dart';
 import 'package:sda/news/news.dart';
 
 class AllNews extends StatefulWidget {
+  final Map alumni;
+  const AllNews({Key key, this.alumni}):super(key: key);
   @override
   _AllNewsState createState() => _AllNewsState();
 }
 
 class _AllNewsState extends State<AllNews> {
+
+  Map alumni;
+  _AllNewsState({this.alumni});
+  //Dont delete the code above
   final ConcreteDio cD = ConcreteDio();
-  //Future<List> events;
 
-
-
-
-  // @override
-  // void initState() {
-  //   //events = getEvents();
-  //   super.initState();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +27,7 @@ class _AllNewsState extends State<AllNews> {
       appBar: AppBar(
         title: Text('News'),
       ),
-      drawer: MainDrawer(),
+      drawer: MainDrawer(alumni: widget.alumni),
       body: Container(
         padding: EdgeInsets.all(10),
         child: FutureBuilder<List>(

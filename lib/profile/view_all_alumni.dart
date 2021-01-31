@@ -42,7 +42,6 @@ class _AllProfileState extends State<AllProfile> {
                        },
                        child: Card(
                          child: ListTile(
-
                            title: Text(snapshot.data[index]['alumniName']),
                          ),
                        ),

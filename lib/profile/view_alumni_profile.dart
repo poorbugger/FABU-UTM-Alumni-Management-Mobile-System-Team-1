@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 
 class ViewAlumniProfile extends StatefulWidget {
+  final Map alumni;
+  const ViewAlumniProfile({Key key, this.alumni}):super(key: key);
   @override
   _ViewAlumniProfileState createState() => _ViewAlumniProfileState();
 }
 
 class _ViewAlumniProfileState extends State<ViewAlumniProfile> {
-  //final Map alumni;
-  //ViewAlumniProfile({this.alumni});
+  Map alumni;
+  _ViewAlumniProfileState({this.alumni});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        backgroundColor: Colors.indigo[600],
+        backgroundColor: Colors.blue,
         toolbarHeight: 100.0,
         title: Text('More Details'),
         centerTitle: true,

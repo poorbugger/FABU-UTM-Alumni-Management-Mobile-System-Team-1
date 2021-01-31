@@ -1,14 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:sda/main_drawer.dart';
 
 
 
 
 class LogActivityPage extends StatefulWidget {
+  final Map alumni;
+  const LogActivityPage({Key key, this.alumni}):super(key: key);
+  //Dont delete the code above
+
   @override
   _LogActivityPageState createState() => _LogActivityPageState();
 }
 
 class _LogActivityPageState extends State<LogActivityPage> {
+  Map alumni;
+  _LogActivityPageState({this.alumni});
+  //Dont delete the code above
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +24,7 @@ class _LogActivityPageState extends State<LogActivityPage> {
         centerTitle: true,
         title: Text("Log Activity"),
       ),
+      drawer: MainDrawer(alumni: widget.alumni),
       body: Container(
 
         alignment: Alignment.center,

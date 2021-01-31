@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:sda/events/eventlist.dart';
+import 'package:sda/log/view_activity_log.dart';
+import 'package:sda/news/newslist.dart';
+import 'package:sda/profile/view_profile.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sda/auth/login.dart';
-
+import 'landing_page.dart';
 class MainDrawer extends StatefulWidget{
+  final Map alumni;
+  const MainDrawer({Key key, this.alumni}):super(key: key);
   @override
   _MainDrawerState createState() => _MainDrawerState();
 }
 
+
 class _MainDrawerState extends State<MainDrawer> {
+
+  Map alumni;
+  _MainDrawerState({this.alumni});
   final GlobalKey<_MainDrawerState> _mainDrawerState = GlobalKey<_MainDrawerState>();
 
   SharedPreferences sharedPreferences;
@@ -28,11 +38,9 @@ class _MainDrawerState extends State<MainDrawer> {
 
 
   @override
-
-
   Widget build(BuildContext context) {
-   return Drawer(
 
+   return Drawer(
      child: Column(
        children: <Widget>[
          Container(
@@ -57,16 +65,16 @@ class _MainDrawerState extends State<MainDrawer> {
                      ),
                    ),
                  ),
+                 // Text(
+                 //   widget.alumni['alumniName'].toString(),
+                 //   style: TextStyle(
+                 //     fontSize: 22,
+                 //     color: Colors.white,
+                 //   ),
+                 // ),
+                 //
                  Text(
-                   'John',
-                   style: TextStyle(
-                     fontSize: 22,
-                     color: Colors.white,
-                   ),
-                 ),
-
-                 Text(
-                   'Email',
+                  widget.alumni['alumniEmail'],
                    style: TextStyle(
                      color: Colors.white,
                    ),
@@ -75,12 +83,14 @@ class _MainDrawerState extends State<MainDrawer> {
              ),
            ),
          ),
+
          ListTile(
            leading: Icon(Icons.home),
            title: Text('Home',
              style: TextStyle(fontSize: 18,),),
            onTap: () {
-             Navigator.pushNamed(context, '/landing');
+             //Navigator.of(context).push(MaterialPageRoute(builder: (context) => Landing(alumni: widget.alumni)));
+              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Landing(alumni: widget.alumni)),(Route<dynamic> route) => false);
            },
          ),
 
@@ -90,7 +100,7 @@ class _MainDrawerState extends State<MainDrawer> {
            title: Text('Profile',
            style: TextStyle(fontSize: 18,),),
            onTap: () {
-                  Navigator.pushNamed(context, '/viewprofile');
+             Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Profile(alumni: widget.alumni)),(Route<dynamic> route) => false);
                   },
          ),
 
@@ -99,7 +109,7 @@ class _MainDrawerState extends State<MainDrawer> {
            title: Text('Events',
              style: TextStyle(fontSize: 18,),),
            onTap: () {
-             Navigator.pushNamed(context, '/view_events_list');
+             Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => AllEvents(alumni: widget.alumni)),(Route<dynamic> route) => false);
            },
          ),
          ListTile(
@@ -107,7 +117,15 @@ class _MainDrawerState extends State<MainDrawer> {
            title: Text('Log Activity',
              style: TextStyle(fontSize: 18,),),
            onTap: () {
-             Navigator.pushNamed(context, '/logactivity');
+             Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => LogActivityPage(alumni: widget.alumni)),(Route<dynamic> route) => false);
+           },
+         ),
+         ListTile(
+           leading: Icon(Icons.error_outline),
+           title: Text('News',
+             style: TextStyle(fontSize: 18,),),
+           onTap: () {
+             Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => AllNews(alumni: widget.alumni,)), (Route<dynamic> route) => false);
            },
          ),
          ListTile(
@@ -120,7 +138,6 @@ class _MainDrawerState extends State<MainDrawer> {
              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage()), (Route<dynamic> route) => false);
            },
          ),
-
 
        ],
      ),
