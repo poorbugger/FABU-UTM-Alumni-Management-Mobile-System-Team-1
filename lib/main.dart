@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sda/Report/Sponsor.dart';
-import 'package:sda/events/event.dart';
+import 'package:sda/Report/Report_event_home.dart';
 import 'package:sda/events/eventlist.dart';
 import 'package:sda/news/newslist.dart';
 import 'package:sda/log/view_activity_log.dart';
@@ -10,6 +9,8 @@ import 'package:sda/profile/view_alumni_profile.dart';
 import 'package:sda/profile/view_profile.dart';
 import 'Report/EventInvolvement.dart';
 import 'landing_page.dart';
+import 'package:sda/Report/Report_event_home.dart';
+import 'package:sda/Sponsor_Report/Sponsor_Report_home.dart';
 
 void main() {
 
@@ -25,8 +26,11 @@ void main() {
       '/search':(context)=> AllProfile(),
       '/landing':(context) => Landing(),
       '/logactivity':(context) => LogActivityPage(),
-      '/event':(context) => EventReport(),
-      '/Sponsorship':(context) => SponsorReport(),
+      //'/event':(context) => EventReport(),
+
+      '/event':(context) => ReportEventHome(),
+      //'/Sponsorship':(context) => SponsorReport(),
+      '/Sponsorship':(context) => SponsorReportHome(),
     },
   ));
 }

@@ -14,6 +14,11 @@ class DioClass{
       case 'alumnis':
 
          return "https://sheltered-scrubland-74365.herokuapp.com/index";
+      case 'eventReport':
+        return "https://alumni-event-api.herokuapp.com/index";
+
+      case 'sponsorReport':
+        return "https://alumni-sponsorreport-api.herokuapp.com/index";
     }
   }
 
