@@ -67,6 +67,7 @@ flutter:
      - assets/images/logactivity.png
      - assets/images/event1.png
      - assets/images/newspaper.png
+     - assets/images/fabu-logo.png
 
   fonts:
      - family: Montserrat Regular

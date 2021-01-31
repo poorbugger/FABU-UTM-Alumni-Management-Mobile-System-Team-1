@@ -59,15 +59,15 @@ class _AllNewsState extends State<AllNews> {
               else if(snapshot.data == null)
               {
 
-                return Text('No data is found');
-              }
-
-              else
-              {
                 return SpinKitDualRing(
                   color: Colors.blue[900],
                   size: 50.0,
                 );
+              }
+
+              else
+              {
+                return Text('There is an error');
               }
             }
         ),
