@@ -9,7 +9,7 @@ class DioClass{
         return "https://testapievent.herokuapp.com/index";
 
       case 'news':
-        return "https://restcountries.eu/rest/v2/all";
+        return "https://testdatanews.herokuapp.com/index";
 
       case 'alumnis':
 

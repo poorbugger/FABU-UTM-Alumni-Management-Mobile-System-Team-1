@@ -45,9 +45,16 @@ class _AllEventsState extends State<AllEvents> {
 
                 child: Card(
                     elevation: 10,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-                      child:Text(snapshot.data[index]['eventName'], style: TextStyle(fontSize: 18)),)
+                    // child: Padding(
+                    //   padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
+                    //   child:Text(snapshot.data[index]['eventName'], style: TextStyle(fontSize: 18)),
+                    // )
+                  child: ListTile(
+                    leading: Icon(Icons.event),
+                    title: Text(snapshot.data[index]['eventName']),
+                    subtitle: Text(snapshot.data[index]['eventDate']),
+
+                  ),
                 ),
               );
             }
@@ -56,7 +63,6 @@ class _AllEventsState extends State<AllEvents> {
 
         else if(snapshot.data == null)
           {
-
               return Text('No data is found');
           }
 

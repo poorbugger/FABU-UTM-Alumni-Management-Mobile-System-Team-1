@@ -11,7 +11,7 @@ class news_feed extends StatelessWidget{
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
-        title: Text(country['eventName']),
+        title: Text(country['newsName']),
       ),
 
 
@@ -23,12 +23,12 @@ class news_feed extends StatelessWidget{
             children: <Widget>[
               ListTile(
                 title: Text("Title",  textAlign: TextAlign.left, style: TextStyle(fontFamily: 'Montserrat Medium')),
-                subtitle: Text(country['eventName'],  textAlign: TextAlign.left, style: TextStyle( fontFamily: 'Montserrat Medium')),
+                subtitle: Text(country['newsName'],  textAlign: TextAlign.left, style: TextStyle( fontFamily: 'Montserrat Medium')),
               ),
               SizedBox(height: 10),
               ListTile(
                 title: Text("Description", style: TextStyle( fontFamily: 'Montserrat Medium')),
-                subtitle: Text(country['eventDescription'], style: TextStyle(fontFamily: 'Montserrat Regular')),
+                subtitle: Text(country['newsDescription'], style: TextStyle(fontFamily: 'Montserrat Regular')),
               ),
             ],
           ),

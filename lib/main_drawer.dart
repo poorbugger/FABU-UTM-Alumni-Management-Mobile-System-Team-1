@@ -112,6 +112,16 @@ class _MainDrawerState extends State<MainDrawer> {
              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => AllEvents(alumni: widget.alumni)),(Route<dynamic> route) => false);
            },
          ),
+
+         ListTile(
+           leading: Icon(Icons.article),
+           title: Text('News',
+             style: TextStyle(fontSize: 18,),),
+           onTap: () {
+             Navigator.pushNamed(context, '/view_news_list');
+           },
+         ),
+
          ListTile(
            leading: Icon(Icons.insert_chart),
            title: Text('Log Activity',

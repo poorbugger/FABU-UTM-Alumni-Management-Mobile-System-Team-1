@@ -31,7 +31,7 @@ class _AllNewsState extends State<AllNews> {
       body: Container(
         padding: EdgeInsets.all(10),
         child: FutureBuilder<List>(
-            future: cD.getEvents("events"), // a previously-obtained Future<String> or null
+            future: cD.getNews("news"), // a previously-obtained Future<String> or null
             builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
               if(snapshot.hasData) //Implementation of FlowBased Construction Design
                   {
@@ -45,10 +45,11 @@ class _AllNewsState extends State<AllNews> {
                         },
 
                         child: Card(
-                            elevation: 10,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
-                              child:Text(snapshot.data[index]['eventName'], style: TextStyle(fontSize: 18)),)
+                          child: ListTile(
+                            leading: Icon(Icons.web),
+                            title: Text(snapshot.data[index]['newsName']),
+                            subtitle: Text(snapshot.data[index]['newsDate']),
+                          ),
                         ),
                       );
                     }
