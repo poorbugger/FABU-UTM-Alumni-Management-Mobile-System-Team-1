@@ -124,7 +124,7 @@ class _MainDrawerState extends State<MainDrawer> {
 
          ListTile(
            leading: Icon(Icons.insert_chart),
-           title: Text('Log Activity',
+           title: Text('Report Involvement',
              style: TextStyle(fontSize: 18,),),
            onTap: () {
              Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => LogActivityPage(alumni: widget.alumni)),(Route<dynamic> route) => false);
