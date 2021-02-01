@@ -9,9 +9,9 @@ class OtherAlumni extends StatelessWidget {
 
 
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+
       appBar: AppBar(
-        backgroundColor: Colors.indigo[600],
+        backgroundColor: Colors.blue,
         title: Text(alumni['alumniName']),
         centerTitle: true,
       ),
@@ -142,7 +142,7 @@ class OtherAlumni extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: 30,
+              height: 12,
             ),
             Row(
               children: <Widget>[
@@ -189,12 +189,56 @@ class OtherAlumni extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(height: 30,
+            ),
+            Row(
+              children: <Widget>[
+                Expanded(
+                  flex: 2,
+                  child: Text(
+                    'Contact Info',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24,
+                    ),
+                  ),
+                ),
+
+                Expanded(
+                  flex: 3,
+                  child: Divider(
+                    color: Colors.black,
+                    height: 4,
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 10,
+            ),
+            Row(
+              children: <Widget>[
+                Text(
+                  'Contact Number: ',
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+
+                SizedBox(
+                  height: 10,
+                ),
+
+                Text(
+                  alumni['phoneNo'].toString(),
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
-
-
-
     );
   }
 }

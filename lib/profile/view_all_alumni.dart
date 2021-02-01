@@ -29,7 +29,7 @@ class _AllProfileState extends State<AllProfile> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         toolbarHeight: 100.0,
-        title: Text('Connect'),
+        title: Text('List of active alumnis'),
         centerTitle: true,
       ),
       drawer: MainDrawer(alumni: widget.alumni),
@@ -56,6 +56,8 @@ class _AllProfileState extends State<AllProfile> {
                          );
                        },
                        child: Card(
+                         margin: EdgeInsets.all(5.0),
+                         shadowColor: Colors.indigo,
                          child: ListTile(
                            leading: Icon(Icons.account_circle_sharp),
                            title: Text(snapshot.data[index]['alumniName']),

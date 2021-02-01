@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sda/profile/view_alumni_profile.dart';
 
 import '../main_drawer.dart';
 
@@ -77,7 +78,7 @@ class _ProfileState extends State<Profile> {
                 SizedBox(width: 10),
                 Text(
                   //alumniDegree
-                  'Bachelor of Quantity Surveying',
+                  widget.alumni['eduLevel'] + " in Architecture",
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 16,
@@ -93,11 +94,8 @@ class _ProfileState extends State<Profile> {
             RaisedButton.icon(
                 color: Colors.indigo[300],
                 onPressed: () {
-                  Navigator.pushNamed(context, '/viewalumniprofile');
-                  // Navigator.of(context).pushAndRemoveUntil(
-                  //             MaterialPageRoute(builder:
-                  //                 (BuildContext context) => ViewAlumniProfile(alumni: alumni)), (Route<dynamic> route) => false);
 
+                  Navigator.of(context).push(MaterialPageRoute(builder:(BuildContext context) => ViewAlumniProfile(alumni: widget.alumni)));
                 },
                 icon: Icon(Icons.edit),
                 label: Text('More Details..'))

@@ -181,7 +181,7 @@ class _LandingState extends State<Landing> {
                               children: <Widget>[
                                 SvgPicture.network(
                                   'https://image.flaticon.com/icons/svg/1904/1904437.svg', height: 128,),
-                                Text('Log Activity', style: cardTextStyle,)
+                                Text('Report Involvement', style: cardTextStyle,)
                               ],
                             ),
                           ),
