@@ -49,13 +49,25 @@ class event extends StatelessWidget{
 
                 SizedBox(height: 20),
                 ListTile(
+                  title: Text("Time", style: TextStyle(fontSize: 30, fontFamily: 'Montserrat Medium', color: Colors.white)),
+                  subtitle: Text(country['eventTime'], style: TextStyle(fontSize: 20, fontFamily: 'Montserrat Regular', color: Colors.white)),
+                ),
+
+                SizedBox(height: 20),
+                ListTile(
                   title: Text("Venue", style: TextStyle(fontSize: 30, fontFamily: 'Montserrat Medium', color: Colors.white)),
                   subtitle: Text(country['eventVenue'], style: TextStyle(fontSize: 20, fontFamily: 'Montserrat Regular', color: Colors.white)),
                 ),
 
                 SizedBox(height: 20),
                 ListTile(
-                  title: Text("Description", style: TextStyle(fontSize: 30, fontFamily: 'Montserrat Medium', color: Colors.white)),
+                  title: Text("Fee", style: TextStyle(fontSize: 30, fontFamily: 'Montserrat Medium', color: Colors.white)),
+                  subtitle: Text(country['eventFee'], style: TextStyle(fontSize: 20, fontFamily: 'Montserrat Regular', color: Colors.white)),
+                ),
+
+                SizedBox(height: 20),
+                ListTile(
+                  title: Text("Organizer", style: TextStyle(fontSize: 30, fontFamily: 'Montserrat Medium', color: Colors.white)),
                   subtitle: Text(country['eventDescription'], style: TextStyle(fontSize: 20, fontFamily: 'Montserrat Regular', color: Colors.white)),
                 ),
               ],
@@ -109,6 +121,8 @@ class event extends StatelessWidget{
               ),
             ),
           ),
+
+
 
 
         ]
