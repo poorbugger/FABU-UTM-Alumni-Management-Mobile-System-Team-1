@@ -3,6 +3,7 @@ import 'package:sda/events/eventlist.dart';
 import 'package:sda/log/view_activity_log.dart';
 import 'package:sda/news/newslist.dart';
 import 'package:sda/profile/view_profile.dart';
+import 'package:sda/profile/view_all_alumni.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sda/auth/login.dart';
 import 'landing_page.dart';
@@ -131,11 +132,11 @@ class _MainDrawerState extends State<MainDrawer> {
            },
          ),
          ListTile(
-           leading: Icon(Icons.article),
-           title: Text('News',
+           leading: Icon(Icons.attribution_outlined),
+           title: Text('Connect With Others',
              style: TextStyle(fontSize: 18,),),
            onTap: () {
-             Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => AllNews(alumni: widget.alumni,)), (Route<dynamic> route) => false);
+             Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => AllProfile(alumni: widget.alumni)),(Route<dynamic> route) => false);
            },
          ),
          ListTile(

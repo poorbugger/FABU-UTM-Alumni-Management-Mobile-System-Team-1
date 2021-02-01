@@ -12,7 +12,6 @@ class DioClass{
         return "https://testdatanews.herokuapp.com/index";
 
       case 'alumnis':
-
          return "https://sheltered-scrubland-74365.herokuapp.com/index";
 
       case 'eventReport':
@@ -25,8 +24,4 @@ class DioClass{
         throw("An error has occurred");
     }
   }
-
-
-
-
 }
