@@ -20,6 +20,9 @@ class DioClass{
 
       case 'sponsorReport':
         return "https://alumni-sponsorreport-api.herokuapp.com/index";
+
+      default:
+        throw("An error has occurred");
     }
   }
 
