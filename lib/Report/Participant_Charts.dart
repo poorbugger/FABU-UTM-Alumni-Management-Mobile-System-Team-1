@@ -31,7 +31,7 @@ class ParticipantCharts extends StatelessWidget {
      padding: const EdgeInsets.all(8.0),
      child: Column(
          children: <Widget>[
-         Text("Event Involvement Report"
+         Text("No of Participant per Year"
     ),
     Expanded(child: charts.BarChart(series, animate: true,)
     ),

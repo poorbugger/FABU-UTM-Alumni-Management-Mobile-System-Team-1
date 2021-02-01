@@ -26,7 +26,7 @@ SponsorChart({@required this.data});
     padding: const EdgeInsets.all(8.0),
     child: Column(
     children: <Widget>[
-    Text("Sponsorship Involvement Report"
+    Text("No of sponsor per Year"
     ),
     Expanded(child: charts.BarChart(series, animate: true,)
     ),
