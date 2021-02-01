@@ -13,10 +13,10 @@ import 'package:sda/Sponsor_Report/Sponsor_Report_home.dart';
 void main() {
 
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     initialRoute: '/', //later when we done /loading will be default
     routes: {
       '/view_events_list':(context)=> new AllEvents(),
-     // '/view_events':(context)=> event(),
       '/view_news_list':(context)=> new AllNews(),
       '/':(context) => LoginPage(),
       '/viewprofile':(context)=> Profile(),
@@ -24,10 +24,7 @@ void main() {
       '/search':(context)=> AllProfile(),
       '/landing':(context) => Landing(),
       '/logactivity':(context) => LogActivityPage(),
-      //'/event':(context) => EventReport(),
-
       '/event':(context) => ReportEventHome(),
-      //'/Sponsorship':(context) => SponsorReport(),
       '/Sponsorship':(context) => SponsorReportHome(),
     },
   ));

@@ -33,7 +33,7 @@ class _ViewAlumniProfileState extends State<ViewAlumniProfile> {
               ),
             ),
             Text(
-              'Ad O`Ryan Junior',
+              widget.alumni['alumniName'],
               style: TextStyle(
                 fontSize: 20,
                 letterSpacing: 1,
@@ -41,7 +41,7 @@ class _ViewAlumniProfileState extends State<ViewAlumniProfile> {
               ),
             ),
             SizedBox(height: 15,),
-            Text('2018 - 2022'),
+            Text("Graduated in: "+widget.alumni['graduateYear'].toString()),
             Divider(
               color: Colors.black,
               height: 20.0,
@@ -52,7 +52,7 @@ class _ViewAlumniProfileState extends State<ViewAlumniProfile> {
                 Icon(Icons.email_rounded),
                 SizedBox(width: 10,),
                 Text(
-                  'testemail.com',
+                  widget.alumni['alumniEmail'],
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 16,
@@ -70,24 +70,7 @@ class _ViewAlumniProfileState extends State<ViewAlumniProfile> {
                 Icon(Icons.account_balance_sharp),
                 SizedBox(width: 10),
                 Text(
-                  'Bachelor of Quantity Surveying',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w400,
-                    fontSize: 16,
-                  ),
-                ),
-              ],
-            ),
-            Divider(
-              color: Colors.black,
-              height: 20.0,
-            ),
-            Row(
-              children: <Widget>[
-                Icon(Icons.work_sharp),
-                SizedBox(width: 10),
-                Text(
-                  'Athens Corp. Ltd',
+                 widget.alumni['eduLevel']+" in Architecture",
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 16,
@@ -104,7 +87,23 @@ class _ViewAlumniProfileState extends State<ViewAlumniProfile> {
                 Icon(Icons.location_on_sharp),
                 SizedBox(width: 10),
                 Text(
-                  'Athens, Greece',
+                  widget.alumni['alumniAddress']['region'] +" "+widget.alumni['alumniAddress']['houseNo']+", "+ widget.alumni['alumniAddress']['streetName'],
+                  style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+            Divider(
+              color: Colors.black,
+              height: 20.0,
+            ),
+            Row(
+              children: <Widget>[
+                SizedBox(width: 12),
+                Text(
+                  widget.alumni['alumniAddress']['postalCode'] +" "+widget.alumni['alumniAddress']['city']+", "+ widget.alumni['alumniAddress']['state']+", "+ widget.alumni['alumniAddress']['country'],
                   style: TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 16,
@@ -117,13 +116,7 @@ class _ViewAlumniProfileState extends State<ViewAlumniProfile> {
               height: 20.0,
             ),
             SizedBox(height: 20,),
-
-
-
           ],
-
-
-
         ),
       ),
 

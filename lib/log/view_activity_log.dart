@@ -22,13 +22,13 @@ class _LogActivityPageState extends State<LogActivityPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text("Log Activity"),
+        title: Text("Report Involvement"),
       ),
       drawer: MainDrawer(alumni: widget.alumni),
       body: Container(
 
         alignment: Alignment.center,
-        color: Colors.blueGrey[100],
+
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
