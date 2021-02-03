@@ -29,7 +29,7 @@ class _AllProfileState extends State<AllProfile> {
       appBar: AppBar(
         backgroundColor: Colors.blue,
         toolbarHeight: 100.0,
-        title: Text('List of active alumnis'),
+        title: Text('List of alumnis'),
         centerTitle: true,
       ),
       drawer: MainDrawer(alumni: widget.alumni),

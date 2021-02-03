@@ -62,16 +62,16 @@ class _AllEventsState extends State<AllEvents> {
 
         else if(snapshot.data == null)
           {
-            return SpinKitDualRing(
-              color: Colors.blue[900],
-              size: 50.0,
-            );
+            return Text('There is an error');
 
           }
 
         else
           {
-            return Text('There is an error');
+            return SpinKitDualRing(
+              color: Colors.blue[900],
+              size: 50.0,
+            );
           }
     }
     ),
